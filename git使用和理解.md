@@ -1,6 +1,6 @@
-# git的使用和理解
+# Git的使用和理解
 
-## git 初探
+## Git 初探
 
 Git是目前世界上最先进的分布式版本控制系统，每次的增删查都有着记录。。使用Git，每次提交或保存项目状态时，Git基本上都会记录当时所有文件的外观，并存储对该快照的引用。为了提高效率，如果文件没有改变，Git不会再次存储文件，只是指向它已存储的上一个相同文件的链接。Git认为它的数据更像是一个快照流，会将数据作为项目的快照存储一段时间。可以有效、高速地处理从很小到非常大的项目版本管理。 
 
@@ -11,7 +11,7 @@ Index / Stage：暂存区
 Repository：仓库区（或本地仓库）
 Remote：远程仓库
 
-### git和SVN区别
+### Git和SVN区别
 SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑，所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，如果在局域网还可以，带宽够大，速度够快，如果在互联网下，如果网速慢的话，就纳闷了。
 
 Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。
@@ -61,10 +61,10 @@ $ git commit -m "message"
 git commit可以提交多个git add 的文件
 ```
 
-*总结*
-git init
-git add
-git commit -m
+*总结*  
+git init  
+git add  
+git commit -m  
 
 ## git 时空穿梭
 当文件被修改后，可以使用**git status**查看文件的状态
@@ -208,15 +208,15 @@ no changes added to commit (use "git add" and/or "git commit -a")
 如果删除错误的情况下，可以使用git checkout -- test.txt进行恢复，check out是用版本库里的版本替换工作区的版本，无论工作区修改还是删除，都可以一键还原，注意！！是版本库的文件。
 
 *总结*
-git status 
-git diff <file>
-git log --oneline
-git reset --hard HEAD^
-git reset --hard commit号
-git reflog
-git checkout -- <file>
-git restore
-git rm
+git status  
+git diff <file>  
+git log --oneline  
+git reset --hard HEAD^  
+git reset --hard commit号  
+git reflog  
+git checkout -- <file>  
+git restore  
+git rm  
 
 ## 远程仓库
 
