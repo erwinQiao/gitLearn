@@ -126,20 +126,28 @@ index d8036c1..013b5bc 100644
 ### 版本回退
 实际工作中，人脑无法记录全部的信息，需要在Git中使用**git log** 来查看。
 ```
-$ git log
-commit 85d264046a4501b027edf4c5fedc03a23a084d11 (HEAD -> master)
+git log 
+
+commit 91d786a30acb5c0e615fef0cacc9707b2c516913 (HEAD -> master, origin/master)
 Author: QiaoWu <18235446416@139.com>
-Date:   Mon Jul 3 16:28:44 2023 +0800
+Date:   Wed Jul 5 11:01:42 2023 +0800
 
-    changed
+    add distributed
 
-commit 94054979577b9ffc83cf771ccdc1973015c32e13
+commit e673bbbaa063900f47f47390cef43641c4a0e85e
 Author: QiaoWu <18235446416@139.com>
-Date:   Mon Jul 3 16:04:28 2023 +0800
+Date:   Wed Jul 5 10:54:52 2023 +0800
 
-    message
+    wrote a readme file
+
+commit 36732e2c80e515590d47838438198e85545c6820
+Author: QiaoWu <18235446416@139.com>
+Date:   Wed Jul 5 10:47:30 2023 +0800
+
+    gitTest.text
+
 ```
-1. 首先在git中，是<u>HEAD</u>表示当前的版本，上个版本就是<u>HEAD^</u>,上上个版本就是<u>HEAD^^</u>,如果要回到上个版本就要使用**add distributed** ,使用**git reset**命令。
+1. 首先在git中，是<u>HEAD</u>表示当前的版本，上个版本就是<u>HEAD^</u>,上上个版本就是<u>HEAD^^</u>,如果要回到上个版本就要使用 ,**git reset**命令。通过查看commit的信息内容，找到前面的索引码，复制几位就可以了
 ```
 git reset --hard  HEAD^
 
@@ -149,7 +157,7 @@ git log --oneline --graph
 
 #发现文件被修改了，之前的git log也不在了
 
-git reset --hard 26c08f23 
+git reset --hard e673bbbaa0 
 #又恢复到了最新的版本
 ```
 
@@ -157,14 +165,9 @@ git reset --hard 26c08f23
 ```
 git reflog
 
-26c08f2 (HEAD -> master) HEAD@{0}: reset: moving to 26c08f23
-b604ceb HEAD@{1}: reset: moving to HEAD^
-26c08f2 (HEAD -> master) HEAD@{2}: commit: append GPL
-b604ceb HEAD@{3}: commit: add distributed
-11a0817 HEAD@{4}: commit: wrote a readme file
-01b07cf HEAD@{5}: commit: wrote a readme file
-85d2640 HEAD@{6}: commit: changed
-9405497 HEAD@{7}: commit (initial): message
+26c08f2 (HEAD -> master) HEAD@91d786a HEAD@{0}: commit: add distributed
+e673bbb HEAD@{1}: commit: wrote a readme file
+36732e2 HEAD@{2}: commit: gitTest.text
 
 ```
 ### 工作区或暂存区
@@ -190,7 +193,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 Git 跟踪并管理的是修改，而不是文件。
 修改后Git add 第一次然后 Git commit，再进行修改文件，使用Git status查看状态，发现并没有提交第二次修改。Git commit只负责提交暂存区的修改。
 
-使用**git diff** 查看文件版本状态
+使用**git diff <file>** 查看文件版本状态
 
 ### 撤销修改
 
@@ -308,3 +311,5 @@ Receiving objects: 100% (3/3), done.
 注意信息：GitHub给出的地址不止一个，还可以用https://github.com/michaelliao/gitskills.git这样的地址。实际上，Git支持多种协议，默认的git://使用ssh，但也可以使用https等其他协议。
 
 使用https除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用ssh协议而只能用https。
+
+## 分支管理
