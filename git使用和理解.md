@@ -21,15 +21,18 @@ Git是分布式版本控制系统，那么它就没有中央服务器的，每�
 ### git 安装
 
 Linux/Mac/windows git查看是否安装	
+Git下载官网 https://git-scm.com/downloads
 ```
 sudo apt-get install git
 ```
+git windows安装好之后，在文件中点右键就会出现Git bash here和Git GUI here，先选择Git bash here，使用命令行进行操作。
 
 ### git 初始化
 因为Git是分布式版本控制系统，所以需要填写用户名和邮箱作为一个标识。
 ```
- git config --global user.name "Bioplanet"
- git config --global user.email "Bioplanet520@outlook.com"
+ git config --global user.name "QiaoWu"
+ git config --global user.email "18235446416@139.com"
+ 
  #查看系统设置
  git config --list
 ```
@@ -50,15 +53,29 @@ git init
 
 ### 举个例子介绍git add 和gti commit
 
-1. 先创建一个txt的文本文档
-2. 用命令git add 告诉Git，把文件添加仓库；
-3. 用命令git commit -m "message" 告诉Git，把文件提交到仓库；-m 是用来填写你提交过程中加入的信息的。
+1. 先创建一个gitTest.txt的文本文档
+
+txt中内容写的如下
 ```
-$ git commit -m "message"
+Git is a version control system.
+Git is free software.
+```
+
+1. 用命令git add 告诉Git，把文件添加仓库；
+```
+git add gitTest.txt
+```
+2. 用命令**git commit -m "message"** 告诉Git，把文件提交到仓库；-m 是用来填写你提交过程中加入的信息的。
+
+```
+git commit -m "wrote a readme file"
+
+#显示信息
 [master (root-commit) 9405497] message
  1 file changed, 2 insertions(+)
  create mode 100644 Git
-git commit可以提交多个git add 的文件
+
+#git commit可以提交多个git add 的文件
 ```
 
 *总结*  
@@ -68,35 +85,43 @@ git commit -m
 
 ## git 时空穿梭
 当文件被修改后，可以使用**git status**查看文件的状态
+Git is a distributed version control system.
+Git is free software.
 ```
-$ git status
+git status
+
+#显示信息
+#前面第一部分是远端仓库的提示信息，暂时不用看
 On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+#这一部分是主要的变化
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
-        modified:   Git
+        modified:   gitTest.txt
 
 no changes added to commit (use "git add" and/or "git commit -a")
+
 ```
 但是无法看清修改了什么内容，如果要看修改了什么内容，需要使用**git diff** 命令来查看
 
 ```
-git diff Git
+git diff gitTest.txt
 
-diff --git a/Git b/Git
-index d8036c1..936d069 100644
---- a/Git
-+++ b/Git
-@@ -1,2 +1,4 @@
- Git is a version control system.
--Git is free software.
-\ No newline at end of file
-+Git is free software.
-+
-+Git is not good.
+diff --git a/gitTest.txt b/gitTest.txt
+index d8036c1..013b5bc 100644
+--- a/gitTest.txt
++++ b/gitTest.txt
+@@ -1,2 +1,2 @@
+-Git is a version control system.
++Git is a distributed version control system.
+ Git is free software.
 \ No newline at end of file
 ```
-再进行完git add之后，可以使用git status查看后面的状态，如果没有问题之后，就可以使用git commit进行提交。
+
+再进行完git add之后，可以使用git status查看后面的状态，如果没有问题之后，就可以使用**git commit  -m "add distributed"**进行提交。
 
 ### 版本回退
 实际工作中，人脑无法记录全部的信息，需要在Git中使用**git log** 来查看。
@@ -270,3 +295,16 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 1. 还是按照之前的方式构建远程库，最好是点击README add。这样就会创建README.md文件
 
 2. 使用**git clone**
+```
+git clone git@github.com:michaelliao/gitskills.git
+
+#进程信息
+Cloning into 'gitskills'...
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 3
+Receiving objects: 100% (3/3), done.
+```
+
+注意信息：GitHub给出的地址不止一个，还可以用https://github.com/michaelliao/gitskills.git这样的地址。实际上，Git支持多种协议，默认的git://使用ssh，但也可以使用https等其他协议。
+
+使用https除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用ssh协议而只能用https。
