@@ -557,3 +557,11 @@ git cherry-pick \<commit>
 ```
 git branch -D feature-vulcan
 ```
+
+### 多人协作
+
+多人协作是git灵魂所在，必须充分使用。涉及到远程仓库克隆。
+
+查看远程库的信息，用**git remote**
+
+用**git remote -v** 显示更详细的信息

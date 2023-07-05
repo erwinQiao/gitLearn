@@ -5,3 +5,4 @@ Git is free software distributed under the GPL.
 
 2. git-cheat-sheet.pdf是git常用命令的表格合集，可以打印出来方便查看记忆。
 
+3. gitTest.txt是用来测试的简单数据。
