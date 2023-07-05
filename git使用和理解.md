@@ -604,6 +604,8 @@ git rebase
 Git把我们本地的提交“挪动”了位置，放到了f005ed4 (origin/master) set exit=1之后，这样，整个提交历史就成了一条直线。
 
 ## 标签管理
+
+### 创建标签
 为了使得分支和版本更加清晰和便于传达，是和commit绑定在一起的。
 
 ```
@@ -619,3 +621,46 @@ git tag V0.9 \<commit id>
 ```
 git show v0.9
 ```
+
+```
+git tag -a V0.1 -m "Version 0.1 released" \<commit id>
+```
+
+*总结*
+git tag \<tag name>  
+git tag show  
+git tag -a \<tag name> -m "Version"  
+
+### 操作标签
+
+标签的删除，推送等
+```
+git tag -d v0.1
+
+#将远程全部推送某个标签
+git push origin v1.0
+```
+
+从远程删除标签麻烦一些
+```
+### rebase
+```
+git rebase
+```
+将历史线变成好看的直线
+Git把我们本地的提交“挪动”了位置，放到了f005ed4 (origin/master) set exit=1之后，这样，整个提交历史就成了一条直线。
+
+```
+
+## 使用Github和Gitee
+同时推送两个，需要使用不同的远程库名称
+```
+git remote rm orign
+
+git remote add github git@github.com:xxxxx
+git remote add Gitee git@gitee.com:XXXX
+
+git remote -v 
+```
+
+使用推送就用git push github master
