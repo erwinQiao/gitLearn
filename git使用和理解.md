@@ -565,3 +565,57 @@ git branch -D feature-vulcan
 查看远程库的信息，用**git remote**
 
 用**git remote -v** 显示更详细的信息
+
+git clone从远程仓库克隆后，基本是以master作为主线的，所以在分支上，要转换
+ ```
+ git branch
+ #确认分支状态
+
+ git checkout -b dev /origin/dev
+ #这样子就可以dev继续修改了，进行推送之类的
+ ```
+如果多人正好在push dev分支上冲突，需要先pull最新的分支
+
+```
+git pull \<remote> \<branch>
+git branch --set-upstream-to=origin/dev dev
+
+git pull
+```
+合并的冲突，需要手动解决，就像之前的方式一样。
+
+多人合作的模式
+1. 首先试图git push origin \<branch>
+2. 如果报错，就git pull试图合并
+3. 如果合并冲突，就解决冲突，并在本地提交
+4. git push origin \<branch-name>
+
+如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream-to <branch-name> origin/<branch-name>
+
+在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+
+建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name。
+
+### rebase
+```
+git rebase
+```
+将历史线变成好看的直线
+Git把我们本地的提交“挪动”了位置，放到了f005ed4 (origin/master) set exit=1之后，这样，整个提交历史就成了一条直线。
+
+## 标签管理
+为了使得分支和版本更加清晰和便于传达，是和commit绑定在一起的。
+
+```
+git tag v1.0
+```
+默认标签是打在最新提交的commit上，如果忘记打了，可以按照commit id来打标签
+
+```
+git tag V0.9 \<commit id>
+```
+标签不是按照时间顺序列出的，而是按照字母排序的。
+
+```
+git show v0.9
+```
