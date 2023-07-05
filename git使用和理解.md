@@ -233,3 +233,40 @@ ssh-keygen -t rsa -C "youremail@example.com"
 2. 一定注意使用的是公钥，id_rsa.pub，私钥不要泄露出去，登陆Github，打开账户设定，在SSH Key界面，点击Add SSH key，然后添加任意Title，在key文本框中粘贴id_rsa.pub文件中的内容
 
 可以添加多个key，能够多台电脑推送
+Github是免费托管的Git仓库，任何二五年都可以看到。
+
+### 添加远程仓库
+要想远程仓库能够同步本地仓库，需要在Github上添加一个运程仓库。
+
+自行在Github上摸索，一般是create a new repo;填写基础信息;使用命令进行远程仓库和本地仓库的关联。
+
+```
+git remote add origin git@github.com:michaelliao/learngit.git
+```
+这个关联之后，必须有公钥才能进行传输。
+origin是远程仓库的名称，是Git的默认叫法
+
+关联之后，下一步就是推送
+```
+git push -u origin master
+
+#下面是提示信息
+Counting objects: 20, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (20/20), 1.64 KiB | 560.00 KiB/s, done.
+Total 20 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), done.
+To github.com:michaelliao/learngit.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+```
+由于远程库是空的，第一次推送就要加上参数-u，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+
+### 从远程库克隆
+之前是先有本地库，然后再有远程库，关联起来。
+
+最好的方式是先创建远程库，然后从远程库克隆。
+1. 还是按照之前的方式构建远程库，最好是点击README add。这样就会创建README.md文件
+
+2. 使用**git clone**
