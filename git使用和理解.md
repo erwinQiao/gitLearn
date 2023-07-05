@@ -495,7 +495,12 @@ git switch -c issue-101
 ```
 
 3.修改完成后，git add；git commit
+
 ```
+git commit  -m "fix bug 101"
+[issue-101 2f74a9f] fix bug 101
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 git switch master
 git merge --no-ff -m "merged bug fix 101" issue-101
 
@@ -529,3 +534,26 @@ Dropped refs/stash@{0} (ee4c19bcd6ab6cc3c4c8c89600d268a8085cd13d)
 ```
 
 git stash apply stash@{0} 用来恢复指定内容
+
+6.如果在master上修改了issue-101，意味这dev上也要修改，这时候，git会给直接复制修改issue-101的机制，来直接将bug修改放到dev中
+```
+git cherry-pick 2f74a9f
+
+Auto-merging gitTest.txt
+[dev 431bf15] fix bug 101
+ Date: Wed Jul 5 14:39:48 2023 +0800
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+```
+*总结*
+git brach  
+git stash  
+git stash list  
+git stash pop  
+git cherry-pick \<commit>  
+
+### Feature分支
+在未合并之前进行是不能通过-d删除的，只能强行删除分支，进而保密
+```
+git branch -D feature-vulcan
+```
