@@ -145,11 +145,31 @@ git clone git@github.com:erwinQiao/gitLearn.git
 在新建文件/文件夹之后，U显示的就是untraced,就是对应git status中未追踪的文件。  
 
 ![test](/Figure/figure15.PNG)  
-点击分支符号，看到test状态，旁边的+就是相当于git add，返回符号就是撤回。
+点击分支符号，看到test状态，旁边的+就是相当于git add，返回符号就是撤回，可以当个文件+，也可全部文件+。
 
 ![commit](/Figure/figure3.PNG)  
-点击+ 相当于git add，然后提交相当于git commit，上面输入消息就相当于-m，然后提交之后就完成了git commit。
+点击+ 相当于git add，然后提交相当于git commit，上面输入消息就相当于-m，然后提交之后就完成了git commit。  
+
+M相当于修改
 
 
+![git push](/Figure/figure16.PNG)
+同步修改相当于git push
 
+这样就完成了一个完成的创建--添加--commit--push的流程，能够满足最基础的需要。
+
+![git其他命令](/Figure/figure5.PNG)
+
+拉取==git pull  
+推送==git push  
+克隆==git clone  
+抓取==git fetch  
+签出==git checkout  
+
+分支==git branch
+标记==git tag
+存储==git stash
+远程==git remote
+
+分支的所有操作都在分支的选项中，包括创建，删除，合并，变基。
 
