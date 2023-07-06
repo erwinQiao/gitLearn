@@ -5,3 +5,4 @@ VSCode是一款微软出的轻量级编辑器，它本身只是一款文本编�
 
 ### VS Code安装
 1.到官网<https://code.visualstudio.com/>下载合适的版本并下载
+![VScode下载](/Figure/figure6.PNG)
