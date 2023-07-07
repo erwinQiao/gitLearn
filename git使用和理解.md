@@ -676,3 +676,7 @@ git remote -v
 使用推送就用git push github master
 
 ## 补充Git操作点
+
+**git revert**  
+git revert是撤销某次操作，
+
