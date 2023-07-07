@@ -82,7 +82,7 @@ git commit -m "wrote a readme file"
 #git commit可以提交多个git add 的文件
 ```
 
-*总结*  
+*总结*    
 git init  
 git add  
 git commit -m    
@@ -244,7 +244,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 如果删除错误的情况下，可以使用**git checkout -- gitTest.txt**进行恢复，check out是用版本库里的版本替换工作区的版本，无论工作区修改还是删除，都可以一键还原，注意！！是版本库的文件。
 
-*总结*
+*总结*  
 git status  
 git diff \<file>  
 git log --oneline  
@@ -321,7 +321,7 @@ remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 3
 Receiving objects: 100% (3/3), done.
 ```
 
-注意信息：GitHub给出的地址不止一个，还可以用https://github.com/michaelliao/gitskills.git这样的地址。实际上，Git支持多种协议，默认的git://使用ssh，但也可以使用https等其他协议。
+注意信息：GitHub给出的地址不止一个，还可以用https://github.com/michaelliao/gitskills.git  这样的地址。实际上，Git支持多种协议，默认的 git:// 使用ssh，但也可以使用https等其他协议。  
 
 使用https除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用ssh协议而只能用https。
 
@@ -674,3 +674,5 @@ git remote -v
 ```
 
 使用推送就用git push github master
+
+## 补充Git操作点
