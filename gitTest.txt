@@ -1,0 +1,19 @@
+Git is a distributed version control system.
+Git is a b c free software.
+
+Creating a new branch is quick.
+
+tackle conflict
+
+A
+
+B
+
+C
+
+D
+
+
+E
+
+F
