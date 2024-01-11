@@ -1,4 +1,6 @@
-Git is a distributedversion control system.
+
+Git is a distributedversion control system.  
+
 Git is free software distributed under the GPL.
 
 1. git使用和理解主要是介绍了git的历史，常用命令，远程仓库的使用，分支管理以及git服务器搭建
